@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const config = require('./utils/config')
 const logger = require('./utils/logger')
 const middleware = require('./utils/middleware')
@@ -26,6 +27,10 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
+
+app.get('/health', (_req, res, err) => {
+  return res.send('ok')
+})
 
 app.use('/api/blogs', blogRouter)
 app.use('/api/users', userRouter)
