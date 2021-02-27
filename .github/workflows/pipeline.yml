@@ -30,9 +30,14 @@ jobs:
         working-directory: ./client
         
       - name: Make .env
-        uses: SpicyPizza/create-envfile@v1
-        with:
-          directory: ./server
+        run: |
+          touch .env
+          echo MONGODB_URI=${{ secrets.MONGODB_URI }} >> .env
+          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
+          echo SECRET="flanazo" >> .env
+          echo PORT=3001 >> .env
+          cat .env
+        working-directory: ./server
         
       - name: Unit test backend
         run: npm test
