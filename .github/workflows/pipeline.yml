@@ -29,6 +29,15 @@ jobs:
         run: npm run eslint
         working-directory: ./client
         
+      - name: Make .env
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_PORT: 3001
+          envkey_MONGODB_URI: ${{ secrets.MONGODB_URI }}
+          envkey_TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+          envkey_SECRET: "flanazo"
+          directory: ./server
+        
       - name: Unit test backend
         run: npm test
         working-directory: ./server
