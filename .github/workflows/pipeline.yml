@@ -1,25 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 name: basic pipeline
 
 on:
@@ -34,6 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      
+      - name: npm install backend
+        run: npm i
+        working-directory: ./server
+        
+      - name: npm install frontend
+        run: npm i
+        working-directory: ./client
       
       - name: Lint backend
         run: npm run lint
