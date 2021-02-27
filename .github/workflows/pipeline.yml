@@ -15,7 +15,7 @@ jobs:
       
       - name: npm install backend
         run: |
-          echo "MONGODB_URI=HOLAXDDDDDDDD" > .env
+          echo "MONGODB_URI="HOLAXDDDDDDDD"" > .env
           cat .env
           ls -la
           npm i
