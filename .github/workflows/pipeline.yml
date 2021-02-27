@@ -42,21 +42,6 @@ jobs:
       - name: Unit test frontend
         run: npm test
         working-directory: ./client
-        
-      - name: e2e
-        uses: cypress-io/github-action@v2
-        with:
-          start: |
-            cd ./server
-            npm run start:test
-            cd ../client
-            npm start
-          wait-on: http://localhost:3000
-        env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
-          TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
-          PORT: 3001
-          SECRET: "flanazo"
           
       - name: build
         run: npm run build:full
