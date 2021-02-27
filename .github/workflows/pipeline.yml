@@ -29,18 +29,11 @@ jobs:
         run: npm run eslint
         working-directory: ./client
         
-      - name: Make .env
-        run: |
-          touch .env
-          echo MONGODB_URI=${{ secrets.MONGODB_URI }} >> .env
-          echo TEST_MONGODB_URI=${{ secrets.TEST_MONGODB_URI }} >> .env
-          echo SECRET="flanazo" >> .env
-          echo PORT=3001 >> .env
-          cat .env
-        working-directory: ./server
-        
       - name: Unit test backend
-        run: npm test
+        run: |
+          echo "${{ secrets.MY_PROJECT_ENV}}" > .env
+          cat .env
+          npm test
         working-directory: ./server
         
       - name: Unit test frontend
