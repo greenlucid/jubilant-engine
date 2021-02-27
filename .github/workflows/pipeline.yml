@@ -14,7 +14,10 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: npm install backend
-        run: npm i
+        run: |
+          echo "${{ secrets.MY_PROJECT_ENV}}" > .env
+          cat .env
+          npm i
         working-directory: ./server
         
       - name: npm install frontend
@@ -22,7 +25,10 @@ jobs:
         working-directory: ./client
       
       - name: Lint backend
-        run: npm run lint
+        run: |
+          ls -la
+          cat .env
+          npm run lint
         working-directory: ./server
         
       - name: Lint frontend
@@ -30,9 +36,7 @@ jobs:
         working-directory: ./client
         
       - name: Unit test backend
-        run: |
-          echo "${{ secrets.MY_PROJECT_ENV}}" > .env
-          cat .env
+        run: 
           npm test
         working-directory: ./server
         
