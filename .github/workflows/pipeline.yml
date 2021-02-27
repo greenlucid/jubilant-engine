@@ -15,8 +15,9 @@ jobs:
       
       - name: npm install backend
         run: |
-          echo "${{ secrets.MY_PROJECT_ENV}}" > .env
+          echo "hello firneds XD" > .env
           cat .env
+          ls -la
           npm i
         working-directory: ./server
         
