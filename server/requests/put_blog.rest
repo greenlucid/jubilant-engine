@@ -1,0 +1,7 @@
+PUT http://localhost:3003/api/blogs/5fbeded45e7aff3b50f42aaf
+Content-Type: application/json
+
+{
+  "likes": 100,
+  "title": "Teletubbie Blog"
+}

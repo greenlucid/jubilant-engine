@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImphaW1pdG8iLCJpZCI6IjVmYzBmNjJkMTZiNTJjMTYyY2EyZmY0NCIsImlhdCI6MTYwNjQ4MTQ1OH0.A4olkmXLqeQQvxL8ZWVhy6OGxt9lu0WWmb3Yfmi5JkA
+
+{
+  "title": "Cooking Blog",
+  "author": "Peter Flanero",
+  "url": "www.comerdeverdad.net",
+  "likes": 0
+}
