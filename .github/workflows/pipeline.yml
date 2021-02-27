@@ -56,11 +56,11 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          working-directory: ./server
+          appdir: "server"
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "flano-final-01235"
+          heroku_app_name: "arcane-woodland-02451"
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          healthcheck: "https://flano-final-01235.herokuapp.com/health"
+          healthcheck: "https://arcane-woodland-02451.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
           
