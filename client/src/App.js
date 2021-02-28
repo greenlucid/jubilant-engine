@@ -48,7 +48,7 @@ const App = () => {
         />
       </Togglable>
       <h2>blogs</h2>
-      <div style={{ color: '#22ff22' }} className='blogList'>
+      <div style={{ color: '#22ff22', backgroundColor: '#fd4daa' }} className='blogList'>
         {blogs.map(blog =>
           <Blog key={blog.id} blog={blog} blogs={blogs} setBlogs={setBlogs}
             user={user} showMessage={showMessage}
