@@ -46,6 +46,13 @@ jobs:
       - name: build
         run: npm run build:full
         working-directory: ./server
+        
+      - name: e2e
+        uses: cypress-io/github-action@v2
+        with:
+          start: npm run --prefix server start
+          wait-on: 'http://localhost:3000'
+          working-directory: ./client
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
