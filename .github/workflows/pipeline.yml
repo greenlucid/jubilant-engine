@@ -50,7 +50,7 @@ jobs:
       - name: e2e
         uses: cypress-io/github-action@v2
         with:
-          start: npm run --prefix server start
+          start: npm run --prefix ../server start
           wait-on: 'http://localhost:3000'
           working-directory: ./client
         env:
