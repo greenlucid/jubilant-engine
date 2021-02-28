@@ -3,7 +3,7 @@ import $ from 'jquery'
 describe('Bloglist', function() {
   beforeEach(function() {
     cy.request('POST', 'http://localhost:3001/api/testing/reset')
-    cy.visit('http://localhost:3000')
+    cy.visit('http://localhost:3001')
   })
   it('shows login form if unlogged', function() {
     cy.get('.loginForm').contains('Username')
@@ -18,7 +18,7 @@ describe('Bloglist', function() {
         password: 'cosita'
       }
       cy.request('POST', 'http://localhost:3001/api/users', user)
-      cy.visit('http://localhost:3000')
+      cy.visit('http://localhost:3001')
     })
     it('succeeds with correct credentials', function() {
       cy.get('.loginForm').get('#username').type('jaimito')
@@ -38,7 +38,7 @@ describe('Bloglist', function() {
           username: 'jaimito', password: 'cosita'
         }).then(response => {
           localStorage.setItem('loggedBloglistUser', JSON.stringify(response.body))
-          cy.visit('http://localhost:3000')
+          cy.visit('http://localhost:3001')
         })
       })
       it('a blog can be created', function() {
@@ -60,7 +60,7 @@ describe('Bloglist', function() {
           cy.get('@blogForm').get('#author-input').type('Hulk Hogan')
           cy.get('@blogForm').get('#url-input').type('https://www.youtube.com/watch?v=qYmeUc6KnHA')
           cy.get('@blogForm').get('#submitButton').click()
-          cy.visit('http://localhost:3000')
+          cy.visit('http://localhost:3001')
         })
         it('the blog can be liked', function() {
           cy.get('.blogList').contains('All about Pistachios').parent().as('foundBlog')
@@ -83,7 +83,7 @@ describe('Bloglist', function() {
   describe('when there are multiple blogs with likes', function() {
     beforeEach(function() {
       cy.request('POST', 'http://localhost:3001/api/testing/seed')
-      cy.visit('http://localhost:3000')
+      cy.visit('http://localhost:3001')
     })
     it('they are shown in decreasing order by likes', function() {
       //Click every button to reveal likes
